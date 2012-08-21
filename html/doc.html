@@ -1,0 +1,40 @@
+<style type="text/css">
+#doc {margin:1em;}
+#doc ul li {margin:0.5em;}
+#tab1 td {padding-right:15px;}
+</style>
+<div id="doc">
+<div class="h6">Documentation</div>
+<p>
+
+<ul> 
+	<li><code>&lt;script type="text/javascript" src="jsonfn.js"&gt;&lt;/script&gt;</code>
+	<li>No configuration is needed</li>
+	<li>Plugin internally uses JSON object, which is native for modern browsers. For old browsers, which don't support JSON, include Douglas Crockford's json2.js  
+	<div><a href="https://github.com/douglascrockford/JSON-js" target="blank">https://github.com/douglascrockford/JSON-js</a>  )</div></li>
+
+	<li>Usage:
+		<ul>
+			<li><b>Stringify</b> <br/><br/>
+				<div><code>var str = JSONfn.stringify(obj);</code></div>
+				<div><code>@obj</code>   - javascript object;</div>
+				<div><code>@return</code> - string;</div>
+
+			</li>
+		</ul>
+		<br/>
+		<ul>
+			<li><b>Parse</b> <br/><br/>
+			<div><code>var obj = JSONfn.parse(str);</code></div>
+					<div><code>@str</code>   - string;</div>
+					<div><code>@return</code> - object;</div>
+			
+			</li>
+		</ul>
+		<br/>
+	</li>
+	
+</ul>
+
+</p>
+</div>

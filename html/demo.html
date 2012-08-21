@@ -1,0 +1,42 @@
+<table >
+<tr><td>
+<div class="h6">Try it</div>
+</td></tr>
+<tr><td class="functionDoc">
+<div>
+<pre>
+function showFirstName(){
+	var str = JSONfn.stringify(jsonfnObj);
+	var objfn = JSONfn.parse(str);
+	alert(objfn.firstName);
+}
+</pre>
+<input type="button" value="showFirstName" onclick="showFirstName()" />
+</div>
+
+<div>
+<pre >
+function showFullName(){
+	var str = JSONfn.stringify(jsonfnObj);
+	var objfn = JSONfn.parse(str);
+	alert(objfn.getFullName());
+}
+</pre>
+<input type="button" value="showFullName" onclick="showFullName()" />
+</div>
+
+<div>
+<pre>
+function showLambdaGreeting(){
+	var str = JSONfn.stringify(jsonfnObj);
+	var objfn = JSONfn.parse(str);
+	alert(objfn.greetLambda('Hello '));
+}
+</pre>
+<input type="button" value="showLambdaGreeting" onclick="showLambdaGreeting()" />
+</div>
+
+
+
+</td>
+</tr></table>
