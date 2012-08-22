@@ -7,7 +7,7 @@ background:#FFFFF0;}
 
 h1, h2, h3 {text-align:center; color:#000080;}
 p {margin:10px; padding:5px;}
-code {color:#000040; font-weight:bold; font-size:110%; /*fint-style:italic;*/}
+code {color:#000080; font-weight:bold; font-size:110%; /*fint-style:italic;*/}
 pre {/*font-size:120%;*/ /*font-family: monospace;color:#000033; font-weight:bold;*/}
 a:link {color:black;}
 a:visited {color:black;}
