@@ -2,7 +2,7 @@
 * JSONfn - javascript plugin to convert javascript object, ( including those with functions ) 
 * to string and vise versa.
 *  
-* Version - 0.3.00.beta 
+* Version - 0.3.10.beta 
 * Copyright (c) 2012 Vadim Kiryukhin
 * vkiryukhin @ gmail.com
 * http://www.eslinstructor.net/jsonfn/
@@ -33,17 +33,19 @@ if (!JSONfn) {
 }
 
 (function () {
-	
+
 	JSONfn.stringify = function(obj) {
 		return JSON.stringify(obj,function(key, value){
 				return (typeof value === 'function' ) ? value.toString() : value;
 			});
-	}
+	};
 
 	JSONfn.parse = function(str) {
 		return JSON.parse(str,function(key, value){
-			if(typeof value != 'string') return value;
-			return ( value.substring(0,8) == 'function') ? eval('('+value+')') : value;
+			if(typeof value != 'string') {
+				return value;
+			}
+			return ( value.substring(0,8) === 'function') ? eval('('+value+')') : value;
 		});
-	}
-}());
+	};
+}()); 
