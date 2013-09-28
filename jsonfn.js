@@ -1,9 +1,8 @@
 /**
-* JSONfn - javascript plugin to convert javascript object, ( including those with functions ) 
-* to string and vise versa.
+* JSONfn - javascript plugin to stringify, parse and clone objects with methods.
 *  
-* Version - 0.3.10.beta 
-* Copyright (c) 2012 Vadim Kiryukhin
+* Version - 0.4.00.beta 
+* Copyright (c) 2012 - 2013 Vadim Kiryukhin
 * vkiryukhin @ gmail.com
 * http://www.eslinstructor.net/jsonfn/
 * 
@@ -15,6 +14,7 @@
 * 
 *        JSONfn.stringify(obj);
 *        JSONfn.parse(jsonStr);
+*		 JSONfn.stringify(obj);
 *
 *        @obj     -  javascript object;
 *		 @jsonStr -  String in JSON format; 
@@ -39,13 +39,39 @@ if (!JSONfn) {
 				return (typeof value === 'function' ) ? value.toString() : value;
 			});
 	};
+	
+	JSONfn.parse = function(str, restoreDateObj) {
+	
+		if(restoreDateObj) { // if "date string" is found, convert it into a Date object //
+		
+			return JSON.parse(str,function(key, value){
+			
+				if(typeof value != 'string') return value;
 
-	JSONfn.parse = function(str) {
-		return JSON.parse(str,function(key, value){
-			if(typeof value != 'string') {
-				return value;
-			}
-			return ( value.substring(0,8) === 'function') ? eval('('+value+')') : value;
-		});
+				if( value.substring(0,8) === 'function') {
+					return eval('('+ value +')');
+				} else 
+				if( value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/)) { 
+					return new Date(value);
+				} else {
+					return value;
+				}
+			});
+		
+		} else { 
+			return JSON.parse(str,function(key, value){
+				if(typeof value != 'string') {
+					return value;
+				}
+				return ( value.substring(0,8) === 'function') ? eval('('+value+')') : value;
+			});
+		}
+		
 	};
+	
+	JSONfn.clone = function(obj, restoreDateObj) {
+		return JSONfn.parse(JSONfn.stringify(obj), restoreDateObj);
+	}
+	
+
 }()); 
