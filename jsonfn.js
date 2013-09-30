@@ -13,65 +13,69 @@
 *   USAGE:
 * 
 *        JSONfn.stringify(obj);
-*        JSONfn.parse(jsonStr);
-*		 JSONfn.stringify(obj);
+*        JSONfn.parse(str[, date2obj]);
+*		 JSONfn.clone(obj[, date2obj]);
 *
-*        @obj     -  javascript object;
-*		 @jsonStr -  String in JSON format; 
-*
-*   Examples:
-*		
-*        var str = JSONfn.stringify(obj);
-*        var obj = JSONfn.parse(str);
-*
+*        @obj      -  Object;
+*		 @str      -  String, which is returned by JSONfn.stringify() function; 
+*		 @date2obj - Boolean (optional); if true (or evaluates to true), date string in ISO8061 format
+*					 is converted into a Date object; therwise, it is left as a String.
 */
 
-// Create a JSON object only if it does not already exist. 
+// Create a JSONfn object only if it does not already exist. 
+
 var JSONfn;
 if (!JSONfn) {
     JSONfn = {};
 }
 
+// Create methods in a closure to avoid creating global variables.
+
 (function () {
 
-	JSONfn.stringify = function(obj) {
-		return JSON.stringify(obj,function(key, value){
-				return (typeof value === 'function' ) ? value.toString() : value;
-			});
-	};
-	
-	JSONfn.parse = function(str, restoreDateObj) {
-	
-		if(restoreDateObj) { // if "date string" is found, convert it into a Date object //
-		
-			return JSON.parse(str,function(key, value){
-			
-				if(typeof value != 'string') return value;
+JSONfn.stringify = function(obj) {
+	return JSON.stringify(obj,function(key, value){
+			return (typeof value === 'function' ) ? value.toString() : value;
+		});
+};
 
-				if( value.substring(0,8) === 'function') {
-					return eval('('+ value +')');
-				} else 
-				if( value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/)) { 
-					return new Date(value);
-				} else {
-					return value;
-				}
-			});
-		
-		} else { 
-			return JSON.parse(str,function(key, value){
-				if(typeof value != 'string') {
-					return value;
-				}
-				return ( value.substring(0,8) === 'function') ? eval('('+value+')') : value;
-			});
-		}
-		
-	};
 	
-	JSONfn.clone = function(obj, restoreDateObj) {
-		return JSONfn.parse(JSONfn.stringify(obj), restoreDateObj);
+JSONfn.parse = function(str, date2obj) {
+	
+	var iso8061 = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/;
+
+	if(date2obj) { // ISO-8061 string should be converted into "Date" object 
+			
+		return JSON.parse(str,function(key, value){
+		
+			if(typeof value != 'string') return value;
+
+			if( value.substring(0,8) === 'function') {
+				return eval('('+ value +')');
+			} else 
+			if( value.match( iso8061 )) { 
+				return new Date(value);
+			} else {
+				return value;
+			}
+		});
+	
+	} else { // don't test strings on ISO-8061 format.
+
+		return JSON.parse(str,function(key, value){
+			if(typeof value != 'string') {
+				return value;
+			}
+			return ( value.substring(0,8) === 'function') ? eval('('+value+')') : value;
+		});
 	}
+	
+};
+
+	
+JSONfn.clone = function(obj, date2obj) {
+	return JSONfn.parse(JSONfn.stringify(obj), date2obj);
+}
 	
 
 }()); 

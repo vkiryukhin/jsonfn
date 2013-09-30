@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>JSONfn Test</title>
+
+<script src="jsonfn.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<p>Open console (F12) to see report. </p>
+<input type="button" onclick="makeTest()" value="test" /> 
+&nbsp;&nbsp;&nbsp;
+<div id="testPassed" style="display:none;color:green;">PASSED</div>
+<div id="testFailed" style="display:none;color:red;">FAILED</div>
+
+<script type="text/javascript">
+
+function makeTest() {
+	document.getElementById('testPassed').style.display ='none';
+	document.getElementById('testFailed').style.display ='none';
+	setTimeout(doTest,250);
+}
+
+function doTest() {
+		
+	var ar = [],
+		ar_clone,
+		passed = true;
+		
+	ar.push('abc'); //String
+	ar.push(1.23);	//Number
+	ar.push(true);	//Boolean
+	ar.push({name:'Alex', fn:function(num){return num*2} }); //Object
+	ar.push(['xyz', 7.89, false]); //Array
+	ar.push(new Date());	//Date
+	ar.push(function(num){return num+1});	//Function
+
+	function cl(obj){console.log(obj)}
+	function dd(){return +new Date()}
+	function delta(dt){console.log((dd() - dt)+ " mSec" ) }
+
+	
+	function showInitObject(){
+	cl('------------');
+		cl("Initial object:");
+		cl(ar);
+	}
+
+	function makeClon(){
+	cl('------------');
+		cl('Cloning object. . . ');
+		ar_clone = JSONfn.clone(ar,true);
+		if( ar_clone instanceof Array){
+			cl('Done');
+		} else {
+			cl('Failed');
+			passed = false;
+		}
+	}
+
+	function showClonObject(){
+	cl('------------');
+		cl("Cloned object:");
+		cl(ar_clone);
+	}
+
+	function testCloneFunctions(){
+	cl('------------');
+		cl('testing method in object . . . ');
+		if(ar_clone[3].fn(2) === 4){
+			cl('Pass')
+		} else {
+			cl('Failed');
+			passed = false;
+		}
+	cl('------------');	
+		cl('testing function. . . ');
+		if(ar_clone[6](2) === 3 ){
+			cl('Pass');
+		} else {
+			cl('Failed');
+			passed = false;
+		}
+	}
+
+	function testDecoupling(){
+	cl('------------');
+		cl('testing decoupling . . . ');
+		ar[3] === ar_clone[3] ? cl('Object: Failed') : cl('Object: Pass');
+		ar[4] === ar_clone[4] ? cl('Array: Failed') : cl('Array: Pass');
+		ar[5] === ar_clone[5] ? cl('Date: Failed') : cl('Date: Pass');
+		
+		if(ar[3] === ar_clone[3] || ar[4] === ar_clone[4] || ar[5] === ar_clone[5]) passed = false;
+	}
+
+	function testClonePerformance(){
+		var buf = [],
+			clone,
+			dt,
+			ix;
+			
+		for(ix=0;ix<1000;ix++){
+			buf.push(ar);
+		}
+	cl('------------');
+		cl('performance test: cloning array of 1000 of initial objects . . . ');	
+		
+		dt = dd();
+		clone = JSONfn.clone(buf);
+		delta(dt);
+
+	}
+
+	showInitObject();
+	makeClon();
+	showClonObject();
+	testDecoupling();
+	testCloneFunctions();
+	testClonePerformance();
+	
+	if(passed){
+		document.getElementById('testPassed').style.display ='block';
+		document.getElementById('testFailed').style.display='none';
+	} else {
+		document.getElementById('testPassed').style.display='none';
+		document.getElementById('testFailed').style.display='block';
+	}
+
+}
+
+</script>
+
+
+</body>
+</html>
