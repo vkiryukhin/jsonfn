@@ -67,6 +67,11 @@ function loadTemplate(name)
 			$('#rightpanel').empty().load('html/demo.html');
 			break;
 			
+		case 'clone':
+			$('#leftpanel').show().load( 'html/obj2clone.html');
+			$('#rightpanel').empty().load('html/test_embed.html');
+			break;
+			
 	}
 
 }
