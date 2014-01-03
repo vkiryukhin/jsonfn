@@ -18,17 +18,31 @@
 				<ul>
 					<li><b>Stringify</b> <br/>
 						<div><code>var str = JSONfn.stringify(obj);</code></div>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@obj</code>   - javascript object;</div>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - string;</div>
+						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@obj</code>   - Object;</div>
+						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - String;</div>
 
 					</li>
 				</ul>
 
 				<ul>
 					<li><b>Parse</b> <br/>
-					<div><code>var obj = JSONfn.parse(str);</code></div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@str</code>   - string;</div>
+					<div><code>var obj = JSONfn.parse(str[, date2obj]);</code></div>
+							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@str</code>   - String;</div>
+							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@date2obj</code> - Boolean (optional); 
+						if <code>true</code>, string in ISO8061 format is converted into a <code>Date</code> object; 
+						otherwise, it is left as a <code>String</code>.</div>
 							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - object;</div>
+					
+					</li>
+				</ul>
+				
+				<ul>
+					<li><b>Clone</b> <br/>
+					<div><code>var obj_clone = JSONfn.clone(obj[, date2obj]);</code></div>
+							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@str</code>   - String;</div>
+							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@date2obj</code> - Boolean (optional); 
+							set it <code>true</code> if <code>obj</code> has property instanceof <code>Date</code><br/> </div>
+							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - Object;</div>
 					
 					</li>
 				</ul>

@@ -1,16 +1,71 @@
+<style>
+#comparisionTable {border:1px solid black;border-collapse: collapse; }
+#comparisionTable td,th {border:1px solid black; padding:0.5em 1em 0.5em 1em; }
+.redBold {font-weight:bold; color:#cc0000;}
+.greenBold {font-weight:bold; color:#00cc00;}
+.blueBold {font-weight:bold; color:#0000cc;}
+</style>
+
 <table style="text-align:justify;">
 <tr><td>
 <div class="h6">Overview</div>
 <p>
-JSONfn is a javascript plugin to convert jsvascript <span class="_highlight" style="color:blue;font-weight:bold;">object with functions </span>into a string and convert this string back to the object, as well as clone such kind of object.
+JSONfn is a javascript plugin to <b>stringify / parse</b> or <b>clone</b> a javascript object.
 </p>
 <p>
-With this plugin you can easily serialize any javascript object, save this string in a local storage or on a server and then get the string and convert it back to object. I repeat it: <b>object with functions!</b> 
+With this plugin you can easily serialize any javascript object, save this string in a 
+local storage or on a server and then get the string and convert it back to object.
+</p>
+<p>
+
+<b>JSONfn Advantage:</b><br/>
+<table id="comparisionTable">
+	<thead>
+		<tr>
+			<th>Property Type</th>
+			<th>JSON</th>
+			<th class="blueBold">JSONfn</th>
+			<th style="text-align:center;">Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td >Basic</td>
+			<td class="greenBold">YES</td>
+			<td class="greenBold">YES</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="blueBold" >Function</td>
+			<td class="redBold">NO</td>
+			<td class="greenBold">YES</td>
+			<td>
+				Regular JSON ignores functions.
+			</td>
+		</tr>
+		<tr>
+			<td class="blueBold">RegExp</td>
+			<td class="redBold">NO</td>
+			<td class="greenBold">YES</td>
+			<td>Regular JSON returns empty object.</td>
+		</tr>
+		<tr>
+			<td class="blueBold">Date</td>
+			<td class="redBold">NO</td>
+			<td class="greenBold">YES</td>
+			<td>Regular JSON returns a "String" instead of "Date" object.</td>
+		</tr>
+	</tbody>
+</table>
 
 </p>
 
+
+
 <p>
-If you still reading this text, you probably don't need any other arguments to start using this plugin. Well, one more thing: full development version with comments is only <b>1k</b> (2K with license, author, etc :).
+If you still reading this text, you probably don't need any other arguments to start 
+using this plugin. Well, one more thing: full development version ( with 
+comments, copyright, license, usage, etc.) is less than <b>2k</b>
 </p>
 
 <p>

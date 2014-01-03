@@ -34,7 +34,8 @@ function doTest() {
 		
 	var ar = [],
 		ar_clone,
-		passed = true;
+		passed = true,
+		str = "John Smith";
 		
 	ar.push('abc'); //String
 	ar.push(1.23);	//Number
@@ -43,6 +44,7 @@ function doTest() {
 	ar.push(['xyz', 7.89, false]); //Array
 	ar.push(new Date());	//Date
 	ar.push(function(num){return num+1});	//Function
+	ar.push(/(\w+)\s(\w+)/); //RegExp
 
 	function cl(obj){console.log(obj)}
 	function dd(){return +new Date()}
@@ -92,6 +94,17 @@ function doTest() {
 		}
 	}
 
+	function testCloneRegexp(){
+	cl('------------');
+		cl('testing Regexp. . . ');
+		if(str.replace(ar_clone[7],"$2, $1") === 'Smith, John' ){
+			cl('Pass');
+		} else {
+			cl('Failed');
+			passed = false;
+		}
+	}
+	
 	function testDecoupling(){
 	cl('------------');
 		cl('testing decoupling . . . ');
@@ -126,6 +139,7 @@ function doTest() {
 	showClonObject();
 	testDecoupling();
 	testCloneFunctions();
+	testCloneRegexp();
 	testClonePerformance();
 	
 	if(passed){
