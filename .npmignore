@@ -1,0 +1,7 @@
+
+# don't need these in the npm package.
+html/*.*
+
+# don't ignore .npmignore files
+# these are used in some tests.
+!.npmignore

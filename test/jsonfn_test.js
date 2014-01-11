@@ -1,51 +1,85 @@
-	
-	var obj = {
-		firstName:"John", 
-		lastName:"Dow",
-		getFullName:function() {
-			return this.firstName+" "+this.lastName;
-		},
-		greetLambda:function(param) {
-			var displayMessage = (function(msg1){  
-				return function(msg2){  
-					return msg1 + msg2;
-			   }     
-			}(param));
-			return displayMessage("Lambda World!");
-		}
-	},
-	JSONfn = require('../jsonfn'),
-	strfn,
-	objfn,
-	objClone;
- 	
-	function printTestResult(strfn, objfn, title){
+"use strict";
 
-		console.log('\n================================'+title+'==============================================\n');
+var obj = {
+  firstName: "John",
+  lastName: "Dow",
+  today: new Date(),
+  re: /(\w+)\s(\w+)/,
+  dd: new Date(),
+  getFullName: function () {
+    return this.firstName + " " + this.lastName;
+  },
+  greetLambda: function (param) {
+    var displayMessage = (function (msg1) {
+      return function (msg2) {
+        return msg1 + msg2;
+      };
+    }(param));
+    return displayMessage("Lambda World!");
+  }
+},
+  JSONfn = require('../jsonfn'),
+  strfn,
+  objfn;
 
-		console.log('\n/*------- stringified obgect: -------*/\n\n' + strfn + '\n');
+function testBasic() {
+  if (objfn.firstName === "John") {
+    console.log('     basic.................   OK\n');
+  } else {
+    console.log('     basic.................   failure\n');
+  }
+}
 
-		console.log('\n/*------- First Name: -------*/\n\n' + objfn.firstName + '\n');
-		console.log('\n/*------- Full name: -------------*/\n\n' + objfn.getFullName()  + '\n');
-		console.log('\n/*------- Lambda Greeting: -------*/\n\n' + objfn.greetLambda('Hello ') + '\n');
-		console.log('\n===============================================================================\n');
-	}
+function testFunction() {
+  if (objfn.getFullName() === "John Dow") {
+    console.log('     function..............   OK\n');
+  } else {
+    console.log('     function..............   failure\n');
+  }
+}
 
-	strfn = JSONfn.stringify(obj),
-	objfn = JSONfn.parse(strfn);
-	
-	printTestResult(strfn, objfn, 'Testing Original Object');
-	
-	console.log('\n/*------- Clonning Obgect . . . -------*/\n\n');
-	objClone = JSONfn.clone(obj);
-	console.log('\n/*------- Done with clonning -------*/\n\n');
-	
-	strfn = JSONfn.stringify(objClone),
-	objfn = JSONfn.parse(strfn);
-	
-	printTestResult(strfn, objfn, 'Testing Clonned Object');
+function testLambda() {
+  if (objfn.greetLambda('Hello ') === "Hello Lambda World!") {
+    console.log('     Lambda function.......   OK\n');
+  } else {
+    console.log('     Lambda function.......   failure\n');
+  }
+}
 
+function testRegexp() {
+  var str = 'John Smith';
+  if (str.replace(objfn.re, "$2, $1") === 'Smith, John') {
+    console.log('     RegExp................   OK\n');
+  } else {
+    console.log('     RegExp................   failure\n');
+  }
+}
 
+function testDate() {
+  if (objfn.dd.getTime && typeof objfn.dd.getTime === 'function') {
+    console.log('     Date..................   OK\n');
+  } else {
+    console.log('     Date..................   failure\n');
+  }
+}
+
+console.log('\n======= Test started =======\n\n');
+
+console.log('  Stringifying original object.......\n');
+
+strfn = JSONfn.stringify(obj, true);
+console.log(strfn);
+console.log('\n  Parsing this string....... ');
+objfn = JSONfn.parse(strfn, true);
+console.log('\n  Running tests: \n');
+
+testBasic();
+testFunction();
+testLambda();
+testRegexp();
+testDate();
+
+console.log('\n\n======= Test finished =======\n');
 
 
 

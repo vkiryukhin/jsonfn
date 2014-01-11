@@ -1,0 +1,29 @@
+{
+  "name": "jsonfn",
+  "version": "0.60.00",
+  "author": "Vadim Kiryukhin <vkiryukhin@gmail.com>",
+  "description": "javascript plugin to stringify, parse and clone javascript objects with functions and RegExp.",
+  "contributors": [ 
+    {
+      "name": "Vadim Kiryukhin",
+      "email": "vkiryukhin@gmail.com"
+    } 
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vkiryukhin/jsonfn"
+  },
+  "main":"./jsonfn",
+  "keywords": [
+	"stringify object with function",
+	"stringify object with regexp",
+	"stringify with function",
+	"JSON with regex",
+	"JSON stringify with function",
+    "JSON stringify with functions"
+  ],
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.4.9"
+  }
+}
