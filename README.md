@@ -1,27 +1,25 @@
 # JSONfn
 
-Javascript plugin to convert jsvascript **objects with functions** into a string and convert this string back to the object.  
+Javascript plugin to stringify / parse / clone
 
-**Version** - 0.3.00.beta
+jsvascript objects with
 
-**Copyright** (c) 2012 Vadim Kiryukhin ( vkiryukhin @ gmail.com )
+  - **Functions** 
+  - **RegExp** 
+  - **Date**
+
+
+**Version** - 0.60.00.beta
+
+**Copyright** (c) 2014 Vadim Kiryukhin ( vkiryukhin @ gmail.com )
 
 **Home page:** [http://www.eslinstructor.net/jsonfn/](http://www.eslinstructor.net/jsonfn/) 
 
-**License:** Dual licensed under
-the MIT and GPL licenses:
+**License:** MIT
 
-[http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
+Basic usage:
 
-[http://www.gnu.org/licenses/gpl.html](http://www.gnu.org/licenses/gpl.html)
+    var str = JSONfn.stringify(obj);
 
-
-   **Stringify**
-
-         var str = JSONfn.stringify(obj);;
-  
-  **Parse**
-  
-		 var obj = JSONfn.parse(str);
-
+    var obj = JSONfn.parse(str);
    
