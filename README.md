@@ -1,8 +1,6 @@
 # JSONfn
 
-Javascript plugin to stringify / parse / clone
-
-jsvascript objects with
+Javascript plugin to stringify / parse / clone jsvascript objects with
 
   - **Functions** 
   - **RegExp** 
@@ -17,9 +15,8 @@ jsvascript objects with
 
 **License:** MIT
 
-Basic usage:
+**Basic usage:**
 
     var str = JSONfn.stringify(obj);
 
     var obj = JSONfn.parse(str);
-   

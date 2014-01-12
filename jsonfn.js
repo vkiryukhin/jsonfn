@@ -1,5 +1,5 @@
 /**
-* JSONfn - combined javascript/nodejs plugin to stringify, parse and clone objects with methods.
+* JSONfn - javascript/nodejs plugin to stringify, parse and clone objects with methods.
 *  
 * Version - 0.60.00
 * Copyright (c) 2012 - 2014 Vadim Kiryukhin
@@ -78,6 +78,6 @@
     return exports.parse(exports.stringify(obj), date2obj);
   };
 
-}(exports === 'undefined' ? (window.JSONfn = {}) : exports));
+}(typeof exports === 'undefined' ? (window.JSONfn = {}) : exports));
 
 

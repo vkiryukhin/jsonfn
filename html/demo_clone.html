@@ -1,0 +1,57 @@
+<table >
+<tr><td>
+<div class="h6">Clone</div>
+</td></tr>
+<tr><td class="functionDoc">
+<div>
+<pre><code data-language="javascript">
+var objfn = JSONfn.clone(jsonfnObj, true);
+</code></pre>
+<pre><code data-language="javascript">
+function showFirstName(){
+  alert(objfn.firstName);
+}
+</code></pre>
+<input type="button" value="showFirstName()" onclick="showFirstNameClone()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function showFullName(){
+  alert(objfn.getFullName());
+}
+</code></pre>
+<input type="button" value="showFullName()" onclick="showFullNameClone()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function showLambdaGreeting(){
+  alert(objfn.greetLambda('Hello '));
+}
+</code></pre>
+<input type="button" value="showLambdaGreeting()" onclick="showLambdaGreetingClone()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function testRegexp(){
+  var name = objfn.getFullName();
+  alert(name.replace(objfn.re, "$2, $1"));
+}
+</code></pre>
+<input type="button" value="testRegexp()" onclick="testRegexpClone()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function testDate(){
+  alert(objfn.today instanceof Date);
+}
+</code></pre>
+<input type="button" value="testDate()" onclick="testDateClone()" />
+</div>
+
+
+</td>
+</tr></table>

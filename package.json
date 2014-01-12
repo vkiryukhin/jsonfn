@@ -15,11 +15,11 @@
   },
   "main":"./jsonfn",
   "keywords": [
-	"stringify object with function",
-	"stringify object with regexp",
-	"stringify with function",
-	"JSON with regex",
-	"JSON stringify with function",
+    "stringify object with function",
+    "stringify object with regexp",
+    "stringify with function",
+    "JSON with regex",
+    "JSON stringify with function",
     "JSON stringify with functions"
   ],
   "license": "MIT",

@@ -6,11 +6,15 @@
 <head>
 <meta itemprop="name" content="JSONfn">
 <meta itemprop="description" content="convert javascript object into a string and string into a javascript object">
-
+<link href="rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
 
 <script src="jquery.1.5.0.js" type="text/javascript"></script>
 <!--script type="text/javascript" src="json2.js"></script-->
+<script src="rainbow/rainbow.min.js" type="text/javascript"></script>
+<script src="rainbow/language/generic.js" type="text/javascript"></script>
+<script src="rainbow/language/javascript.js" type="text/javascript"></script>
+<script src="rainbow/language/html.js" type="text/javascript"></script>
 <script src="../jsonfn.js"></script>
 
 <script type="text/javascript" src="main.js"></script>
@@ -54,7 +58,8 @@
 <div id="menu" >
 	<b>Examples</b>
 	<ul>
-		<li onclick="loadTemplate('demo')">Stringify &amp; Parse</li>
+		<li onclick="loadTemplate('demo')">Stringify</li>
+    <li onclick="loadTemplate('demo_parse')">Parse</li>
 		<li onclick="loadTemplate('clone')">Clone</li>
 	</ul>
 </div> <!-- /menu -->

@@ -1,0 +1,63 @@
+<table >
+<tr><td>
+<div class="h6">Parse</div>
+</td></tr>
+<tr><td class="functionDoc">
+<div>
+<pre><code data-language="javascript">
+var str = JSONfn.stringify(jsonfnObj);
+</code></pre>
+<pre><code data-language="javascript">
+function showFirstName(){
+  var objfn = JSONfn.parse(str);
+  alert(objfn.firstName);
+}
+</code></pre>
+<input type="button" value="showFirstName()" onclick="showFirstName()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function showFullName(){
+  var objfn = JSONfn.parse(str);
+  alert(objfn.getFullName());
+}
+</code></pre>
+<input type="button" value="showFullName()" onclick="showFullName()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function showLambdaGreeting(){
+  var objfn = JSONfn.parse(str);
+  alert(objfn.greetLambda('Hello '));
+}
+</code></pre>
+<input type="button" value="showLambdaGreeting()" onclick="showLambdaGreeting()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function testRegexp(){
+  var objfn = JSONfn.parse(str);
+  var name = objfn.getFullName();
+  alert(name.replace(objfn.re, "$2, $1"));
+}
+</code></pre>
+<input type="button" value="testRegexp()" onclick="testRegexp()" />
+</div>
+
+<div>
+<pre><code data-language="javascript">
+function testDate(){
+  // pay attention at the 2-nd argument. Set it true if
+  // original object had property instance of Date.
+  var objfn = JSONfn.parse(str, true);
+  alert(objfn.today instanceof Date);
+}
+</code></pre>
+<input type="button" value="testDate()" onclick="testDate()" />
+</div>
+
+</td>
+</tr></table>

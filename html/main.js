@@ -3,6 +3,8 @@
 var jsonfnObj = {
   firstName: "John",
   lastName: "Dow",
+  today: new Date(),
+  re: /(\w+)\s(\w+)/,
   getFullName: function() {return this.firstName + " " + this.lastName;},
   greetLambda: function(param) {
     var displayMessage = (function(msg1){  
@@ -15,11 +17,9 @@ var jsonfnObj = {
 };
 
 function showFirstName(){
-
   var str = JSONfn.stringify(jsonfnObj);
   var objfn = JSONfn.parse(str);
   alert(objfn.firstName);
-  
 }
 
 function showFullName(){
@@ -34,9 +34,51 @@ function showLambdaGreeting(){
   alert(objfn.greetLambda('Hello '));
 }
 
+function testRegexp(){
+  var str = JSONfn.stringify(jsonfnObj);
+  var objfn = JSONfn.parse(str);
+  var name = objfn.getFullName();
+  alert(name.replace(objfn.re, "$2, $1"));
+}
+
+function testDate(){
+  var str = JSONfn.stringify(jsonfnObj);
+  var objfn = JSONfn.parse(str,true);
+  alert(objfn.today instanceof Date);
+}
+
 function showStringObj(){
   alert(JSONfn.stringify(jsonfnObj));
 }
+
+
+
+function showFirstNameClone(){
+  var objfn = JSONfn.clone(jsonfnObj);
+  alert(objfn.firstName);
+}
+
+function showFullNameClone(){
+  var objfn = JSONfn.clone(jsonfnObj);
+  alert(objfn.getFullName());
+}
+
+function showLambdaGreetingClone(){
+  var objfn = JSONfn.clone(jsonfnObj);
+  alert(objfn.greetLambda('Hello '));
+}
+
+function testRegexpClone(){
+  var objfn = JSONfn.clone(jsonfnObj);
+  var name = objfn.getFullName();
+  alert(name.replace(objfn.re, "$2, $1"));
+}
+
+function testDateClone(){
+  var objfn = JSONfn.clone(jsonfnObj, true);
+  alert(objfn.today instanceof Date);
+}
+
 
 $(document).ready(function()
 {
@@ -55,22 +97,27 @@ function loadTemplate(name)
 
     case 'overview':
       $('#leftpanel').hide();
-      $('#rightpanel').empty().load('overview.html');
+      $('#rightpanel').empty().load('overview.html',function(){Rainbow.color();});
       break;
     
     case 'doc':
       $('#leftpanel').hide();
-      $('#rightpanel').load('doc.html');
+      $('#rightpanel').load('doc.html',function(){Rainbow.color();});
       break;
   
     case 'demo':
-      $('#leftpanel').show().load('basic.html');
-      $('#rightpanel').empty().load('demo.html');
+      $('#leftpanel').show().load('basic.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('demo.html',function(){Rainbow.color();});
+      break;
+      
+    case 'demo_parse':
+      $('#leftpanel').show().load('basic.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('demo_parse.html',function(){Rainbow.color();});
       break;
       
     case 'clone':
-      $('#leftpanel').show().load( 'obj2clone.html');
-      $('#rightpanel').empty().load('test_embed.html');
+      $('#leftpanel').show().load( 'basic.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('demo_clone.html',function(){Rainbow.color();});
       break;
       
   }

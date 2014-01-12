@@ -9,26 +9,33 @@
 <tr>
 <td class="jsonDoc">
 <div >
-<pre >
+<pre><code>
 var jsonfnObj = {
-	firstName:"John", 
-	lastName:"Dow",
-	getFullName:function() {
-		return this.firstName+" "+this.lastName
-	},
-	greetLambda:function(param) {
-		var displayMessage = (function(msg1){  
-		    return function(msg2){  
-				return msg1 + msg2;
-		   }     
-		}(param));
-		return displayMessage("Lambda World!");
-	}
+
+  <b>firstName</b>:"John",
+  
+  <b>lastName</b>:"Dow",
+  
+  <b>today</b>: new Date(),
+  
+  <b>re</b>: /(\w+)\s(\w+)/,
+  
+  <b>getFullName</b>:function() {
+    return this.firstName+" "+this.lastName
+  },
+  
+  <b>greetLambda</b>:function(param) {
+    var displayMessage = (function(msg1){  
+      return function(msg2){  
+        return msg1 + msg2;
+      }     
+    }(param));
+    return displayMessage("Lambda World!");
+  }
+  
 };
-</pre>
+</code></pre>
 </div>
-<br/><br/>
-<input type="button" value="Show Stringified Object" onclick="showStringObj()" />
 </td>
 
 </tr></table>

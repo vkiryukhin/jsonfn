@@ -5,7 +5,6 @@ var obj = {
   lastName: "Dow",
   today: new Date(),
   re: /(\w+)\s(\w+)/,
-  dd: new Date(),
   getFullName: function () {
     return this.firstName + " " + this.lastName;
   },
@@ -22,7 +21,7 @@ var obj = {
   strfn,
   objfn;
 
-function testBasic() {
+function testBasic(objfn) {
   if (objfn.firstName === "John") {
     console.log('     basic.................   OK\n');
   } else {
@@ -30,7 +29,7 @@ function testBasic() {
   }
 }
 
-function testFunction() {
+function testFunction(objfn) {
   if (objfn.getFullName() === "John Dow") {
     console.log('     function..............   OK\n');
   } else {
@@ -38,7 +37,7 @@ function testFunction() {
   }
 }
 
-function testLambda() {
+function testLambda(objfn) {
   if (objfn.greetLambda('Hello ') === "Hello Lambda World!") {
     console.log('     Lambda function.......   OK\n');
   } else {
@@ -46,7 +45,7 @@ function testLambda() {
   }
 }
 
-function testRegexp() {
+function testRegexp(objfn) {
   var str = 'John Smith';
   if (str.replace(objfn.re, "$2, $1") === 'Smith, John') {
     console.log('     RegExp................   OK\n');
@@ -55,8 +54,8 @@ function testRegexp() {
   }
 }
 
-function testDate() {
-  if (objfn.dd.getTime && typeof objfn.dd.getTime === 'function') {
+function testDate(objfn) {
+  if (objfn.today.getTime && typeof objfn.today.getTime === 'function') {
     console.log('     Date..................   OK\n');
   } else {
     console.log('     Date..................   failure\n');
@@ -73,11 +72,24 @@ console.log('\n  Parsing this string....... ');
 objfn = JSONfn.parse(strfn, true);
 console.log('\n  Running tests: \n');
 
-testBasic();
-testFunction();
-testLambda();
-testRegexp();
-testDate();
+testBasic(objfn);
+testFunction(objfn);
+testLambda(objfn);
+testRegexp(objfn);
+testDate(objfn);
+
+console.log('  Cloning original object.......\n');
+
+console.log('  Run test on clonned object:\n');
+
+objfn = JSONfn.clone(obj, true);
+
+testBasic(objfn);
+testFunction(objfn);
+testLambda(objfn);
+testRegexp(objfn);
+testDate(objfn);
+
 
 console.log('\n\n======= Test finished =======\n');
 
