@@ -83,13 +83,9 @@ function testDateClone(){
 $(document).ready(function()
 {
   $('#leftpanel').hide();
-  $('#rightpanel').empty().load('overview.html');
-  
-
-  
+  $('#rightpanel').empty().load('html/overview.html');
+ 
 });
-
-
 
 function loadTemplate(name)
 {
@@ -97,27 +93,27 @@ function loadTemplate(name)
 
     case 'overview':
       $('#leftpanel').hide();
-      $('#rightpanel').empty().load('overview.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('html/overview.html',function(){Rainbow.color();});
       break;
     
     case 'doc':
       $('#leftpanel').hide();
-      $('#rightpanel').load('doc.html',function(){Rainbow.color();});
+      $('#rightpanel').load('html/doc.html',function(){Rainbow.color();});
       break;
   
     case 'demo':
-      $('#leftpanel').show().load('basic.html',function(){Rainbow.color();});
-      $('#rightpanel').empty().load('demo.html',function(){Rainbow.color();});
+      $('#leftpanel').show().load('html/basic.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('html/demo.html',function(){Rainbow.color();});
       break;
       
     case 'demo_parse':
-      $('#leftpanel').show().load('basic.html',function(){Rainbow.color();});
-      $('#rightpanel').empty().load('demo_parse.html',function(){Rainbow.color();});
+      $('#leftpanel').show().load('html/basic.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('html/demo_parse.html',function(){Rainbow.color();});
       break;
       
     case 'clone':
-      $('#leftpanel').show().load( 'basic.html',function(){Rainbow.color();});
-      $('#rightpanel').empty().load('demo_clone.html',function(){Rainbow.color();});
+      $('#leftpanel').show().load( 'html/basic.html',function(){Rainbow.color();});
+      $('#rightpanel').empty().load('html/demo_clone.html',function(){Rainbow.color();});
       break;
       
   }
