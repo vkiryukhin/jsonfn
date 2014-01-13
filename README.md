@@ -1,13 +1,13 @@
 # JSONfn
 
-Javascript plugin to stringify / parse / clone jsvascript objects with
+Javascript (both node.js and browser) plugin to stringify / parse / clone jsvascript objects with
 
   - **Functions** 
   - **RegExp** 
   - **Date**
 
 
-**Version** - 0.60.00.beta
+**Version** - 0.60.00
 
 **Copyright** (c) 2014 Vadim Kiryukhin ( vkiryukhin @ gmail.com )
 

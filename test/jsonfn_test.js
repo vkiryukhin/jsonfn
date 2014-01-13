@@ -1,23 +1,23 @@
 "use strict";
 
 var obj = {
-  firstName: "John",
-  lastName: "Dow",
-  today: new Date(),
-  re: /(\w+)\s(\w+)/,
-  getFullName: function () {
-    return this.firstName + " " + this.lastName;
+    firstName: "John",
+    lastName: "Dow",
+    today: new Date(),
+    re: /(\w+)\s(\w+)/,
+    getFullName: function () {
+      return this.firstName + " " + this.lastName;
+    },
+    greetLambda: function (param) {
+      var displayMessage = (function (msg1) {
+        return function (msg2) {
+          return msg1 + msg2;
+        };
+      }(param));
+      return displayMessage("Lambda World!");
+    }
   },
-  greetLambda: function (param) {
-    var displayMessage = (function (msg1) {
-      return function (msg2) {
-        return msg1 + msg2;
-      };
-    }(param));
-    return displayMessage("Lambda World!");
-  }
-},
-  JSONfn = require('../jsonfn'),
+  JSONfn = (typeof exports === 'undefined') ? window.JSONfn : require('../jsonfn'),
   strfn,
   objfn;
 
@@ -62,7 +62,7 @@ function testDate(objfn) {
   }
 }
 
-console.log('\n======= Test started =======\n\n');
+console.log('\n\n======= Test started =======\n\n');
 
 console.log('  Stringifying original object.......\n');
 
@@ -91,7 +91,7 @@ testRegexp(objfn);
 testDate(objfn);
 
 
-console.log('\n\n======= Test finished =======\n');
+console.log('\n\n======= Test finished =======\n\n');
 
 
 

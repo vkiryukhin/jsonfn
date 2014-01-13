@@ -6,77 +6,103 @@
 <div id="doc">
 <div class="h6">Documentation</div>
 <p>
-	<ul>
-	<li> <div style="background-color:#e0e0ff; padding-left:0.5em;height:1.5em;"><b>javascript version</b></div>
-		<ul> 
-			<li><code>&lt;script type="text/javascript" src="jsonfn.js"&gt;&lt;/script&gt;</code>
-			<li>No configuration is needed</li>
-			<li>Plugin uses native JSON object, which is implemented in most modern browsers. It's tested in <span style="color:green;"><b>Firefox, Chrome, Opera, IE9</span></b>. It doesnt work in <span style="color:red;">IE8</span>.
-			</li>
+      <ul> 
+        <li>Installation
+          <ul>
+            <li><b>Browser</b> ( all major browsers and IE9+ ) <br/>
+              <pre><code data-language="javascript">&lt;script type="text/javascript" src="path/to/jsonfn.js"&gt;&lt;/script&gt;</code></pre>
+            </li>
+              <li><b>Node.js</b> <br/>
+              <div><pre><code data-language="javascript">npm install jsonfn</code></pre></div>
+            </li>
+          </ul>
+        </li>
+        
+        
+        <li>Initialization
+          <ul>
+            <li><b>Browser</b>: <pre><code data-language="javascript">not needed</code></pre></li>
+            <li><b>Node.js</b>: <pre><code data-language="javascript">var JSONfn = require('path/to/jsonfn');</code></pre>
+            </li>
+          </ul>
+        </li>
 
-			<li>Usage:
-				<ul>
-					<li><b>Stringify</b> <br/>
-						<div><code>var str = JSONfn.stringify(obj);</code></div>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@obj</code>   - Object;</div>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - String;</div>
 
-					</li>
-				</ul>
+        <li>Usage:
+          <ul>
+            <li><b>Stringify</b> 
+              <pre><code data-language="javascript">var str = JSONfn.stringify(obj);</code></pre>
+              <table>
+                <tr>
+                  <td><code>@obj</code></td><td> - javascript Object;</td>
+                </tr>
+                <tr>
+                  <td><code>@return</code></td><td>- String;</td>
+                </tr>
+              </table>
+            
+            </li>
+          </ul>
 
-				<ul>
-					<li><b>Parse</b> <br/>
-					<div><code>var obj = JSONfn.parse(str[, date2obj]);</code></div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@str</code>   - String;</div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@date2obj</code> - Boolean (optional); 
-						if <code>true</code>, string in ISO8061 format is converted into a <code>Date</code> object; 
-						otherwise, it is left as a <code>String</code>.</div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - object;</div>
-					
-					</li>
-				</ul>
-				
-				<ul>
-					<li><b>Clone</b> <br/>
-					<div><code>var obj_clone = JSONfn.clone(obj[, date2obj]);</code></div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@str</code>   - String;</div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@date2obj</code> - Boolean (optional); 
-							set it <code>true</code> if <code>obj</code> has property instanceof <code>Date</code><br/> </div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - Object;</div>
-					
-					</li>
-				</ul>
+          
+          <ul>
+            <li><b>Parse</b> 
+              <pre><code data-language="javascript">var obj = JSONfn.parse(str[, date2obj]);</code></pre>
+              <table>
+                <tr>
+                  <td><code>@str</code></td><td> - string, produced with JSONfn.stringify() function;</td>
+                </tr>
+                <tr>
+                  <td><code>@date2obj</code></td><td>- Boolean (<code><i>optional</i></code>); 
+                  Set it <code>true</code> if original object had property instance of Date.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>@return</code></td><td>- javascript Object;</td>
+                </tr>
+              </table>
+            
+            </li>
+          </ul>
+          
+          
+          <ul>
+            <li><b>Clone</b> 
+              <pre><code data-language="javascript">var objClone = JSONfn.parse(obj[, date2obj]);</code></pre>
+              <table>
+                <tr>
+                  <td><code>@obj</code></td><td> - javascript Object;</td>
+                </tr>
+                <tr>
+                  <td><code>@date2obj</code></td><td>- Boolean (<code><i>optional</i></code>); 
+                  Set it <code>true</code> if original object had property instance of Date.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>@return</code></td><td>- javascript Object;</td>
+                </tr>
+              </table>
+            
+            </li>
+          </ul>
 
-			</li>
-		</ul>
-	</li>
-	<li>
-	<div style="background-color:#e0ffff;padding-left:0.5em;height:1.5em;"><b>Node.js version:</b></div>
-	<ul>
-	<li> download: <code>npm install jsonfn</code> </li>
+        </li>
 
-<li>code: <code><a href="https://github.com/vkiryukhin/jsonfn-node" target="_blank" title="go to https://github.com/vkiryukhin/jsonfn">https://github.com/vkiryukhin/jsonfn-node</a> </code> </li>
-		<li>Usage:
-			<ul>
-			
-					<li><b>Stringify</b> <br/>
-						<div><code>var strfn = require('jsonfn').JSONfn.stringify(obj);</code></div>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@obj</code>   - javascript object;</div>
-						<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - string;</div>
+          <li>Testing
+          <ul>
+            <li><b>Browser</b> ( add this to header and see result in console ) <br/>
+              <div><pre><code data-language="javascript">&lt;script type="text/javascript" src="test/jsonfn_test.js"&gt;&lt;/script&gt;</code></pre></div>
+              
+            </li>
+            
+            <li><b>Node.js</b> <br/>
+              <div><code>&gt;node test/jsonfn_test.js</code></div>
+            </li>
+          </ul>
+        </li>
 
-					</li>
-				</ul>
-				<ul>
-					<li><b>Parse</b> <br/>
-					<div><code>var objfn = require('jsonfn').JSONfn.parse(strfn);</code></div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@str</code>   - string;</div>
-							<div>&nbsp;&nbsp;&nbsp;&nbsp;<code>@return</code> - object;</div>
-					
-					</li>
-				</ul>
-			</li>
-	</ul>
-</li>
-</ul>
+        
+      </ul>
+
 </p>
 </div>

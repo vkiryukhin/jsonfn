@@ -1,6 +1,6 @@
 
 # don't need these in the npm package.
-html/*.*
+/html
 
 # don't ignore .npmignore files
 !.npmignore
