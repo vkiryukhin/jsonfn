@@ -16,7 +16,7 @@
 *         JSONfn.clone(obj[, date2obj]);
 *
 *     nodejs:
-*       var JSONfn = require('path/to/jsonfn');
+*       var JSONfn = require('path/to/json-fn');
 *       JSONfn.stringify(obj);
 *       JSONfn.parse(str[, date2obj]);
 *       JSONfn.clone(obj[, date2obj]);
