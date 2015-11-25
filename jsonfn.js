@@ -3,7 +3,7 @@
 *          parse and clone objects with Functions, Regexp and Date.
 *  
 * Version - 0.60.00
-* Copyright (c) 2012 - 2014 Vadim Kiryukhin
+* Copyright (c) 2012 - 2015 Vadim Kiryukhin
 * vkiryukhin @ gmail.com
 * http://www.eslinstructor.net/jsonfn/
 * 
