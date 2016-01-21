@@ -48,7 +48,7 @@ function testDate(){
 }
 
 function showStringObj(){
-  alert(JSONfn.stringify(jsonfnObj));
+  alert(JSONfn.stringify(jsonfnObj, '\t'));
 }
 
 

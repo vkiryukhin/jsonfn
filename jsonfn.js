@@ -32,7 +32,7 @@
 
 (function (exports) {
 
-  exports.stringify = function (obj) {
+  exports.stringify = function (obj, space) {
 
     return JSON.stringify(obj, function (key, value) {
       if (value instanceof Function || typeof value == 'function') {
@@ -42,7 +42,7 @@
         return '_PxEgEr_' + value;
       }
       return value;
-    });
+    }, space);
   };
 
   exports.parse = function (str, date2obj) {
