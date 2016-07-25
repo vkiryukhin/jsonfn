@@ -8,6 +8,7 @@ var obj = {
     getFullName: function () {
       return this.firstName + " " + this.lastName;
     },
+    arrowFn: (a, b) => a > b ? a : b,
     greetLambda: function (param) {
       var displayMessage = (function (msg1) {
         return function (msg2) {
@@ -62,6 +63,14 @@ function testDate(objfn) {
   }
 }
 
+function testArrowFn(objfn) {
+  if (objfn.arrowFn(11,22) === 22) {
+    console.log('     arrowFunction.........   OK\n');
+  } else {
+    console.log('     arrowFunction.........   failure\n');
+  }
+}
+
 console.log('\n\n======= Test started =======\n\n');
 
 console.log('  Stringifying original object.......\n');
@@ -77,6 +86,7 @@ testFunction(objfn);
 testLambda(objfn);
 testRegexp(objfn);
 testDate(objfn);
+testArrowFn(objfn);
 
 console.log('  Cloning original object.......\n');
 
@@ -89,7 +99,7 @@ testFunction(objfn);
 testLambda(objfn);
 testRegexp(objfn);
 testDate(objfn);
-
+testArrowFn(objfn);
 
 console.log('\n\n======= Test finished =======\n\n');
 
