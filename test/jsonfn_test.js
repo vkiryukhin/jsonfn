@@ -8,6 +8,10 @@ var obj = {
     getFullName: function () {
       return this.firstName + " " + this.lastName;
     },
+    getFullNameArrow: () => {
+      return this.firstName + " " + this.lastName;
+    },
+    arrowFnSimple: a => a > 10 ? 10 : a,
     arrowFn: (a, b) => a > b ? a : b,
     greetLambda: function (param) {
       var displayMessage = (function (msg1) {
@@ -71,6 +75,23 @@ function testArrowFn(objfn) {
   }
 }
 
+function testArrowFnSimple(objfn) {
+  if (objfn.arrowFnSimple(123) === 10) {
+    console.log('     arrowFunctionSimple...   OK\n');
+  } else {
+    console.log('     arrowFunctionSimple...   failure\n');
+  }
+}
+
+function testArrowFnRegular(objfn) {
+  if (objfn.getFullNameArrow() === "John Dow") {
+    console.log('     arrowFunctionRegular..   OK\n');
+  } else {
+    console.log('     arrowFunctionRegular..   failure\n');
+  }
+}
+
+
 console.log('\n\n======= Test started =======\n\n');
 
 console.log('  Stringifying original object.......\n');
@@ -87,6 +108,8 @@ testLambda(objfn);
 testRegexp(objfn);
 testDate(objfn);
 testArrowFn(objfn);
+testArrowFnSimple(objfn);
+testArrowFnRegular(objfn);
 
 console.log('  Cloning original object.......\n');
 
@@ -100,6 +123,8 @@ testLambda(objfn);
 testRegexp(objfn);
 testDate(objfn);
 testArrowFn(objfn);
+testArrowFnSimple(objfn);
+testArrowFnRegular(objfn);
 
 console.log('\n\n======= Test finished =======\n\n');
 

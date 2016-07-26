@@ -28,9 +28,8 @@
 *                 is converted into a Date object; otherwise, it is left as a String.
 */
 
-"use strict";
-
 (function (exports) {
+"use strict";
 
   exports.stringify = function (obj) {
 
