@@ -2,16 +2,16 @@
 
 Javascript (both node.js and browser) plugin to stringify / parse / clone jsvascript objects with
 
-  - **Functions** 
-  - **RegExp** 
+  - **Functions**
+  - **RegExp**
   - **Date**
 
 
-**Version** - 0.60.00
+**Version** - 1.1.00
 
-**Copyright** (c) 2014 Vadim Kiryukhin ( vkiryukhin @ gmail.com )
+**Copyright** (c) Vadim Kiryukhin ( vkiryukhin @ gmail.com )
 
-**Home page:** [http://www.eslinstructor.net/jsonfn/](http://www.eslinstructor.net/jsonfn/) 
+**Home page:** [http://www.eslinstructor.net/jsonfn/](http://www.eslinstructor.net/jsonfn/)
 
 **License:** MIT
 
