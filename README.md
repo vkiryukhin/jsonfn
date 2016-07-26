@@ -7,7 +7,7 @@ Javascript (both node.js and browser) plugin to stringify / parse / clone jsvasc
   - **Date**
 
 
-**Version** - 1.1.00
+**Version** - 1.1.0
 
 **Copyright** (c) Vadim Kiryukhin ( vkiryukhin @ gmail.com )
 

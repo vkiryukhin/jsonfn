@@ -8,16 +8,12 @@ var obj = {
     getFullName: function () {
       return this.firstName + " " + this.lastName;
     },
-    getFullNameArrow: () => {
-      return this.firstName + " " + this.lastName;
-    },
-    arrowFnSimple: a => a > 10 ? 10 : a,
-    arrowFn: (a, b) => a > b ? a : b,
+    getFullNameArrow: () => this.firstName + " " + this.lastName,
+    //arrowFnSimple: a => a > 10 ? 10 : a,
+    //arrowFn: (a, b) => a > b ? a : b,
     greetLambda: function (param) {
       var displayMessage = (function (msg1) {
-        return function (msg2) {
-          return msg1 + msg2;
-        };
+          return msg2 => msg1 + msg2;
       }(param));
       return displayMessage("Lambda World!");
     }
@@ -67,27 +63,12 @@ function testDate(objfn) {
   }
 }
 
-function testArrowFn(objfn) {
-  if (objfn.arrowFn(11,22) === 22) {
-    console.log('     arrowFunction.........   OK\n');
-  } else {
-    console.log('     arrowFunction.........   failure\n');
-  }
-}
-
-function testArrowFnSimple(objfn) {
-  if (objfn.arrowFnSimple(123) === 10) {
-    console.log('     arrowFunctionSimple...   OK\n');
-  } else {
-    console.log('     arrowFunctionSimple...   failure\n');
-  }
-}
 
 function testArrowFnRegular(objfn) {
   if (objfn.getFullNameArrow() === "John Dow") {
-    console.log('     arrowFunctionRegular..   OK\n');
+    console.log('     arrowFunction.........   OK\n');
   } else {
-    console.log('     arrowFunctionRegular..   failure\n');
+    console.log('     arrowFunction.........   failure\n');
   }
 }
 
@@ -107,13 +88,11 @@ testFunction(objfn);
 testLambda(objfn);
 testRegexp(objfn);
 testDate(objfn);
-testArrowFn(objfn);
-testArrowFnSimple(objfn);
 testArrowFnRegular(objfn);
 
-console.log('  Cloning original object.......\n');
+console.log('\n  Cloning original object *******\n');
 
-console.log('  Run test on clonned object:\n');
+console.log('\n  Running test on clonned object:\n');
 
 objfn = JSONfn.clone(obj, true);
 
@@ -122,8 +101,6 @@ testFunction(objfn);
 testLambda(objfn);
 testRegexp(objfn);
 testDate(objfn);
-testArrowFn(objfn);
-testArrowFnSimple(objfn);
 testArrowFnRegular(objfn);
 
 console.log('\n\n======= Test finished =======\n\n');
