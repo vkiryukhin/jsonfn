@@ -8,9 +8,8 @@ var obj = {
     getFullName: function () {
       return this.firstName + " " + this.lastName;
     },
-    getFullNameArrow: () => this.firstName + " " + this.lastName,
-    //arrowFnSimple: a => a > 10 ? 10 : a,
-    //arrowFn: (a, b) => a > b ? a : b,
+    getFullNameArrow: () =>
+            this.firstName + " " + this.lastName,
     greetLambda: function (param) {
       var displayMessage = (function (msg1) {
           return msg2 => msg1 + msg2;

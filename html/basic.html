@@ -1,7 +1,4 @@
 
-
-
-
 <table >
 <tr><td>
 <div class="h6">Object</div>
@@ -9,30 +6,33 @@
 <tr>
 <td class="jsonDoc">
 <div >
-<pre><code>
+<pre><code data-language="javascript">
 var jsonfnObj = {
 
-  <b>firstName</b>:"John",
-  
-  <b>lastName</b>:"Dow",
-  
-  <b>today</b>: new Date(),
-  
-  <b>re</b>: /(\w+)\s(\w+)/,
-  
-  <b>getFullName</b>:function() {
-    return this.firstName+" "+this.lastName
+  firstName:"John",
+
+  lastName:"Dow",
+
+  today: new Date(),
+
+  re: /(\w+)\s(\w+)/,
+
+  getFullName:function() {
+    return this.firstName + " " + this.lastName
   },
-  
-  <b>greetLambda</b>:function(param) {
-    var displayMessage = (function(msg1){  
-      return function(msg2){  
-        return msg1 + msg2;
-      }     
-    }(param));
-    return displayMessage("Lambda World!");
-  }
-  
+
+  /* Arrow function */
+  getFullNameArrow: () =>
+            this.firstName + " " + this.lastName,
+
+  /* Lambda function with Arrow function inside */
+  greetLambda:function(param) {
+      var displayMessage = (function (msg1) {
+          return msg2 => msg1 + msg2;
+      }(param));
+      return displayMessage("Lambda World!");
+    }
+
 };
 </code></pre>
 </div>

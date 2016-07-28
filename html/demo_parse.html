@@ -5,11 +5,19 @@
 <tr><td class="functionDoc">
 <div>
 <pre><code data-language="javascript">
-var str = JSONfn.stringify(jsonfnObj);
+var obj = JSONfn.parse(jsonfnObj);
+
+/* set the second arg true if jsonfnObj has property instanc of Date */
+var obj = JSONfn.parse(jsonfnObj, true);
 </code></pre>
+
+<b>Examples:</b>
+<br/><br/>
+
 <pre><code data-language="javascript">
 function showFirstName(){
-  var objfn = JSONfn.parse(str);
+  var str = JSONfn.stringify(jsonfnObj),
+      objfn = JSONfn.parse(str);
   alert(objfn.firstName);
 }
 </code></pre>
@@ -19,17 +27,34 @@ function showFirstName(){
 <div>
 <pre><code data-language="javascript">
 function showFullName(){
-  var objfn = JSONfn.parse(str);
+  var str = JSONfn.stringify(jsonfnObj),
+      objfn = JSONfn.parse(str);
   alert(objfn.getFullName());
 }
 </code></pre>
 <input type="button" value="showFullName()" onclick="showFullName()" />
 </div>
 <br/>
+
 <div>
 <pre><code data-language="javascript">
+function showFullNameArrow(){
+  var str = JSONfn.stringify(jsonfnObj),
+      objfn = JSONfn.parse(str);
+  alert(objfn.getFullNameArrow());
+}
+</code></pre>
+<input type="button" value="showFullNameArrow()" onclick="showFullNameArrow()" />
+</div>
+
+<br/>
+
+<div>
+<pre><code data-language="javascript">
+/* ES6 Arrow function inside Lambda */
 function showLambdaGreeting(){
-  var objfn = JSONfn.parse(str);
+  var str = JSONfn.stringify(jsonfnObj),
+      objfn = JSONfn.parse(str);
   alert(objfn.greetLambda('Hello '));
 }
 </code></pre>
@@ -39,8 +64,9 @@ function showLambdaGreeting(){
 <div>
 <pre><code data-language="javascript">
 function testRegexp(){
-  var objfn = JSONfn.parse(str);
-  var name = objfn.getFullName();
+  var str = JSONfn.stringify(jsonfnObj),
+      objfn = JSONfn.parse(str),
+      name = objfn.getFullName();
   alert(name.replace(objfn.re, "$2, $1"));
 }
 </code></pre>
@@ -52,7 +78,8 @@ function testRegexp(){
 function testDate(){
   // pay attention at the 2-nd argument. Set it true if
   // original object had property instance of Date.
-  var objfn = JSONfn.parse(str, true);
+  var str = JSONfn.stringify(jsonfnObj),
+      objfn = JSONfn.parse(str, true);
   alert(objfn.today instanceof Date);
 }
 </code></pre>

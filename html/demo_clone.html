@@ -5,53 +5,12 @@
 <tr><td class="functionDoc">
 <div>
 <pre><code data-language="javascript">
+var objfn = JSONfn.clone(jsonfnObj);
+
+/* set the second arg true if jsonfnObj has property instance of Date */
 var objfn = JSONfn.clone(jsonfnObj, true);
 </code></pre>
-<pre><code data-language="javascript">
-function showFirstName(){
-  alert(objfn.firstName);
-}
-</code></pre>
-<input  type="button" value="showFirstName()" onclick="showFirstNameClone()" />
-</div>
-<br/>
-<div>
-<pre><code data-language="javascript">
-function showFullName(){
-  alert(objfn.getFullName());
-}
-</code></pre>
-<input type="button" value="showFullName()" onclick="showFullNameClone()" />
-</div>
-<br/>
-<div>
-<pre><code data-language="javascript">
-function showLambdaGreeting(){
-  alert(objfn.greetLambda('Hello '));
-}
-</code></pre>
-<input type="button" value="showLambdaGreeting()" onclick="showLambdaGreetingClone()" />
-</div>
-<br/>
-<div>
-<pre><code data-language="javascript">
-function testRegexp(){
-  var name = objfn.getFullName();
-  alert(name.replace(objfn.re, "$2, $1"));
-}
-</code></pre>
-<input type="button" value="testRegexp()" onclick="testRegexpClone()" />
-</div>
-<br/>
-<div>
-<pre><code data-language="javascript">
-function testDate(){
-  alert(objfn.today instanceof Date);
-}
-</code></pre>
-<input type="button" value="testDate()" onclick="testDateClone()" />
-</div>
 
-
+</div>
 </td>
 </tr></table>
