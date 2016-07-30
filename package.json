@@ -1,6 +1,6 @@
 {
   "name": "json-fn",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Vadim Kiryukhin <vkiryukhin@gmail.com>",
   "description": "javascript plugin to stringify, parse and clone javascript objects with Functions, RegExp and Date.",
   "contributors": [
