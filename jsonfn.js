@@ -31,7 +31,7 @@
 (function (exports) {
 "use strict";
 
-  exports.stringify = function (obj) {
+  exports.stringify = function (obj, space) {
 
     return JSON.stringify(obj, function (key, value) {
       var fnBody;
@@ -49,7 +49,7 @@
         return '_PxEgEr_' + value;
       }
       return value;
-    });
+    }, space);
   };
 
   exports.parse = function (str, date2obj) {
