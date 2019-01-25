@@ -66,7 +66,7 @@
 
       if (value instanceof Function || typeof value == 'function') {
         if (codeSupport && value.hasOwnProperty('_code_')) {
-          fnBody = { _code_: value.toString(), _code_type_: 'es5' };
+          fnBody = { _code_: value.toString(), _code_type_: 'commonJs' };
           return fnBody;
         } else {
           fnBody = value.toString();
@@ -95,7 +95,7 @@
       if (codeSupport) {
         if (typeof value === 'object' && Object.prototype.toString.call(value) === '[object Object]' && value.hasOwnProperty('_code_')) {
           switch (value._code_type_) {
-            case 'es5':
+            case 'commonJs':
               const result = resolveExportModules(value._code_);
               result._code_ = value._code_;
               result._code_type_ = value._code_type_;

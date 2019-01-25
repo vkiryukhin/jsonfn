@@ -1,4 +1,4 @@
-const jsonFn = require('./jsonfn');
+const jsonFn = require('../jsonfn');
 
 const testObject = {
   value: 1234,
