@@ -28,7 +28,7 @@
  *                 is converted into a Date object; otherwise, it is left as a String.
  */
 
-(function(exports) {
+(function (exports) {
   'use strict';
 
 
@@ -44,9 +44,9 @@
     return module.exports;
   }
 
-  exports.stringify = function(obj, codeSupport) {
+  exports.stringify = function (obj) {
 
-    return JSON.stringify(obj, function(key, value) {
+    return JSON.stringify(obj, function (key, value) {
       let fnBody;
       if (value === String) {
         return '_Schema_String';
@@ -65,8 +65,8 @@
       }
 
       if (value instanceof Function || typeof value == 'function') {
-        if (codeSupport && value.hasOwnProperty('_code_')) {
-          fnBody = { _code_: value.toString(), _code_type_: 'commonJs' };
+        if (value.hasOwnProperty('_code_')) {
+          fnBody = {_code_: value['_code_'], _code_type_: value['_code_type_'] && 'commonJs'};
           return fnBody;
         } else {
           fnBody = value.toString();
@@ -85,11 +85,11 @@
     });
   };
 
-  exports.parse = function(str, date2obj, codeSupport) {
+  exports.parse = function (str, date2obj, codeSupport) {
 
     const iso8061 = date2obj ? /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/ : false;
 
-    return JSON.parse(str, function(key, value) {
+    return JSON.parse(str, function (key, value) {
       let prefix;
 
       if (codeSupport) {
@@ -153,8 +153,8 @@
     });
   };
 
-  exports.clone = function(obj, date2obj) {
-    return exports.parse(exports.stringify(obj), date2obj);
+  exports.clone = function (obj, date2obj, codeSupport) {
+    return exports.parse(exports.stringify(obj), date2obj, codeSupport);
   };
 
 }(typeof exports === 'undefined' ? (window.JSONfn = {}) : exports));
