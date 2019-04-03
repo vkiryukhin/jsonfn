@@ -40,7 +40,11 @@
     const module = {
       exports: {}
     };
-    Function('module', 'require', 'exports', fn).call(module.exports, module, resolveRequireModules, module.exports);
+    try {
+      Function('module', 'require', 'exports', fn).call(module.exports, module, resolveRequireModules, module.exports);
+    } catch (e) {
+      console.warn(e)
+    }
     return module.exports;
   }
 
