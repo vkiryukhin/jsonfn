@@ -78,7 +78,7 @@
         return eval(value.slice(8));
       }
       if (prefix === '_NuFrRa_') {
-        return eval(value.slice(8));
+        return eval('(' + value.slice(8) + ')');
       }
 
       return value;
